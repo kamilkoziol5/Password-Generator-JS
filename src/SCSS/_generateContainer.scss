@@ -172,7 +172,7 @@
 				&:checked + label::before {
 					background-color: $accentColor;
 					border: 1px solid $accentColor;
-					background-image: url('public/check1.svg');
+					background-image: url('./check1.svg');
 					background-repeat: no-repeat;
 					background-position: center;
 					background-size: 20px 20px;
@@ -181,7 +181,7 @@
 				&:indeterminate + label:before {
 					background-color: $accentColor;
 					border: 1px solid $accentColor;
-					background-image: url('public/indeterminate.svg');
+					background-image: url('./indeterminate.svg');
 					background-repeat: no-repeat;
 					background-position: center;
 					background-size: 25px 30px;

@@ -3,10 +3,11 @@ import checkChecboxesInfo from './JAVASCRIPT/checkCheckboxInfo';
 import copyPassword from './JAVASCRIPT/copyPassword';
 import generatePassword from './JAVASCRIPT/generatePassword';
 import renderApp from './JAVASCRIPT/renderApp';
+import renderStrengthProgress from './JAVASCRIPT/renderStrengthProgress';
+import setPasswordStrength from './JAVASCRIPT/setPasswordStrength';
 import state from './JAVASCRIPT/state';
 import './SCSS/style.scss';
 import 'boxicons/css/boxicons.min.css';
-
 
 renderApp();
 checkAll();
@@ -18,6 +19,14 @@ const copyBtn = document.querySelector('.copy-element');
 generateBtn.addEventListener('click', () => {
 	checkChecboxesInfo();
 	generatePassword(
+		state.passwordLength,
+		state.includesLowerCase,
+		state.includesUpperCase,
+		state.includesNumbers,
+		state.includesSymbols
+	);
+	renderStrengthProgress();
+	setPasswordStrength(
 		state.passwordLength,
 		state.includesLowerCase,
 		state.includesUpperCase,

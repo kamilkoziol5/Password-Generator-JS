@@ -5,8 +5,7 @@ export default function renderApp() {
 	ctn.innerHTML = `
 <h1>
 				Password Gnerator
-				<img src="public/padlock.png" alt="" />
-			</h1>
+				<img src="./padlock.png" alt="generate-icon" />			</h1>
 
 			<div class="input-container">
 				<div class="input-wrapper">
@@ -52,7 +51,7 @@ export default function renderApp() {
 					<label for="symbol-checkbox">?/&$</label>
 				</div>
 				<div class="number-wrapper">
-					<input type="number" value="12" id="length" min="5" />
+					<input type="number" value="6" id="length" min="5" />
 					<label for="length">Length</label>
 				</div>
 			</div>
