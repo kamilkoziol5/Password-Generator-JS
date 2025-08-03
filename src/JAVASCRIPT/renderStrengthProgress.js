@@ -1,6 +1,6 @@
 export default function renderStrengthProgress() {
 	const existing = document.querySelector('.strength-progress-box');
-	if (existing) existing.remove();
+	if (existing) return;
 
 	const progress = document.createElement('section');
 

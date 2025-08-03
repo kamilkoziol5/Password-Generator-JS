@@ -11,13 +11,16 @@ export default function setPasswordStrength(
 	const valueEl = document.querySelector('.strength-value');
 	const strengthLabel = document.querySelector('.strength-label');
 
-	let strength = 0;
-	let progressStartValue = 0;
-	let speed = 10;
-
 	if (!progressEl || !valueEl) return;
 
-	if (state.progressInterval) clearInterval(state.progressInterval);
+	let strength = 0;
+	let progressStartValue = 0;
+	let speed = 15;
+
+	if (state.progressInterval) {
+		clearInterval(state.progressInterval);
+		state.progressInterval = null;
+	}
 
 	valueEl.textContent = '0';
 	progressEl.style.background = `conic-gradient(#3399ff 0deg, #121212 0deg)`;
@@ -40,12 +43,16 @@ export default function setPasswordStrength(
 
 	if (includesSymbols) strength += 20;
 
+	strength = Math.min(strength, 100);
+
 	if (strength <= 30) {
 		strengthLabel.textContent = 'Low';
 		strengthLabel.style.color = ' #74b9ffff';
+		strengthLabel.style.textDecoration = 'none';
 	} else if (strength <= 70) {
 		strengthLabel.textContent = 'Almost Good';
 		strengthLabel.style.color = ' #359affff';
+		strengthLabel.style.textDecoration = 'none';
 	} else {
 		strengthLabel.textContent = 'Perfect!!';
 		strengthLabel.style.color = '#0163c5ff';
@@ -53,21 +60,18 @@ export default function setPasswordStrength(
 	}
 
 	state.passwordStrength = strength;
-
 	let progressEndValue = strength;
 
-	let progress = setInterval(() => {
+	state.progressInterval = setInterval(() => {
 		progressStartValue++;
-
 		valueEl.textContent = `${progressStartValue}%`;
 		progressEl.style.background = `conic-gradient(#3399ff ${
 			progressStartValue * 3.6
 		}deg, #121212 0deg)`;
 
-		if (progressStartValue === progressEndValue) {
-			clearInterval(progress);
+		if (progressStartValue >= progressEndValue) {
+			clearInterval(state.progressInterval);
+			state.progressInterval = null;
 		}
 	}, speed);
-
-	state.progressInterval = progress;
 }

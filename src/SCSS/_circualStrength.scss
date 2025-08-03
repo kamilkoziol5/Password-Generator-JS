@@ -7,7 +7,7 @@
 	padding: 0;
 	border: 1px solid $strokeColor;
 	border-left: 1px solid $whiteColor;
-	margin-left: -1px;
+	margin-left: -1rem;
 	background-color: $whiteColor;
 	display: flex;
 	align-items: center;
@@ -17,6 +17,7 @@
 	pointer-events: none;
 	opacity: 0;
 	transition: 300ms ease;
+	box-shadow: 4px 4px 0 $darkText, -4px -4px 0 $accentColor;
 
 	.strength-container {
 		width: 160px;
@@ -64,6 +65,5 @@
 		opacity: 1;
 		padding: 1rem;
 		max-width: 230px;
-		color: #70ff1d;
 	}
 }

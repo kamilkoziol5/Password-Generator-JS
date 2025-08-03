@@ -18,6 +18,13 @@ const copyBtn = document.querySelector('.copy-element');
 
 generateBtn.addEventListener('click', () => {
 	checkChecboxesInfo();
+
+	const isNothingChecked =
+		!state.includesLowerCase &&
+		!state.includesUpperCase &&
+		!state.includesNumbers &&
+		!state.includesSymbols;
+
 	generatePassword(
 		state.passwordLength,
 		state.includesLowerCase,
@@ -25,6 +32,11 @@ generateBtn.addEventListener('click', () => {
 		state.includesNumbers,
 		state.includesSymbols
 	);
+
+	if (isNothingChecked) {
+		return;
+	}
+
 	renderStrengthProgress();
 	setPasswordStrength(
 		state.passwordLength,

@@ -22,21 +22,25 @@ export default function generatePassword(
 	allowedChars += inclucedSymbols ? symbols : '';
 
 	if (passwordLength <= 4) {
+		input.classList.remove('success');
 		input.classList.add('error');
+		input.value = '';
 		error.classList.add('show');
-		error.textContent = 'Hasło musi mieć co najmniej 5 znaków';
+		error.textContent = 'Password must be at least 5 characters long';
 		return;
 	}
 
 	if (allowedChars.length === 0) {
+		input.classList.remove('success');
 		input.classList.add('error');
+		input.value = '';
 		error.classList.add('show');
-		error.textContent = 'Musisz wybrać przynajmniej jedną wartość';
+		error.textContent = 'You must select at least one option';
 
 		return;
 	}
 
-	for (let i = 0; i <= passwordLength; i++) {
+	for (let i = 0; i < passwordLength; i++) {
 		const randomIndex = Math.floor(Math.random() * allowedChars.length);
 		password += allowedChars[randomIndex];
 	}

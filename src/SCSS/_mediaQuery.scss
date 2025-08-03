@@ -1,1 +1,148 @@
 @use 'variables' as *;
+
+@media (max-width: 880px) {
+	body {
+		flex-direction: column;
+		padding: 0.5rem;
+	}
+
+	.container h1 img {
+		max-width: 30px;
+	}
+	.strength-progress-box {
+		margin-left: 0;
+		margin-top: -1rem;
+
+		&.show {
+			padding: 0.7rrem;
+			max-width: 150px;
+		}
+
+		.strength-container {
+			width: 130px;
+
+			.strength-progress {
+				width: 110px;
+				height: 110px;
+
+				&:before {
+					width: 90px;
+					height: 90px;
+				}
+
+				.strength-value {
+					font-size: 1rem;
+				}
+			}
+
+			.strength-label {
+				font-size: 1rem;
+				margin-top: 0.5rem;
+			}
+		}
+	}
+
+	.popup {
+		top: 9rem;
+		transform: translateY(-10px) scale(0.3);
+	}
+}
+
+@media (max-width: 500px) {
+	.container {
+		padding: 1.2rem;
+
+		.input-container {
+			height: 45px;
+			margin-bottom: 1.2rem;
+
+			input {
+				font-size: 1rem;
+				padding: 0.7rem;
+			}
+
+			.input-wrapper.animate:after {
+				animation: expandWidthMobile 1.5s forwards;
+			}
+
+			button {
+				min-width: 45px;
+
+				i {
+					font-size: 1.4rem;
+				}
+			}
+		}
+
+		h2 {
+			font-size: 1rem;
+			padding: 0.7rem;
+		}
+
+		.checkboxes-container {
+			.check-wrapper {
+				padding-left: 25px;
+
+				input[type='checkbox'] {
+					&:checked + label::before {
+						background-size: 16px 16px;
+					}
+
+					&:indeterminate + label:before {
+						background-size: 18px 20px;
+					}
+				}
+
+				label {
+					font-size: 0.8rem;
+
+					&:before {
+						width: 17px;
+						height: 17px;
+					}
+				}
+			}
+			.number-wrapper {
+				label {
+					font-size: 0.9rem;
+				}
+				#length {
+					width: 45px;
+					padding: 5px;
+					font-size: 0.9rem;
+				}
+			}
+		}
+	}
+
+	.popup {
+		top: 7.5rem;
+	}
+}
+
+@media (max-width: 380px) {
+	.container {
+		margin: 0.7rem;
+		h1 {
+			flex-direction: column;
+			gap: 0.5rem;
+		}
+	}
+
+	.popup {
+		top: 10rem;
+	}
+}
+
+@keyframes expandWidthMobile {
+	0% {
+		width: 0;
+	}
+	50% {
+		width: 60%;
+	}
+
+	100% {
+		width: 0;
+	}
+}

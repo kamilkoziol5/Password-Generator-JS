@@ -10,18 +10,19 @@
 	justify-content: center;
 	box-shadow: 0 0 15px rgba(0, 0, 0, 0.65);
 	border: 1px solid $strokeColor;
+	margin: 1rem;
 
 	h1 {
-		font-size: 2.5rem;
+		font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		gap: 1.5rem;
-		margin-bottom: 2rem;
+		margin-bottom: 1rem;
 		color: $darkText;
 
 		img {
-			max-width: 60px;
+			max-width: 40px;
 			width: 100%;
 		}
 	}
@@ -31,9 +32,9 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-bottom: 4rem;
+		margin-bottom: 2rem;
 		position: relative;
-		height: 65px;
+		height: 55px;
 
 		.input-wrapper {
 			height: 100%;
@@ -53,6 +54,24 @@
 					animation: expandWidth 1.5s forwards;
 				}
 			}
+
+			.copy-element {
+				font-size: 1.7rem;
+				cursor: pointer;
+				background-color: transparent;
+				border-top: 1px solid $strokeColor;
+				border-bottom: 1px solid $strokeColor;
+				i {
+					color: $darkText;
+					transition: 300ms ease;
+				}
+
+				&:hover {
+					i {
+						transform: scale(0.9);
+					}
+				}
+			}
 		}
 
 		input {
@@ -66,7 +85,6 @@
 			font-weight: 700;
 			font-size: 1.3rem;
 			color: $darkText;
-			padding-right: 3rem;
 			white-space: nowrap;
 
 			&::placeholder {
@@ -91,31 +109,18 @@
 		.error-msg {
 			position: absolute;
 			left: 0;
-			bottom: -22px;
+			bottom: -18px;
 			color: $errorColor;
 			visibility: hidden;
 			opacity: 0;
 			transform: scale(0);
 			transition: 300ms ease;
+			font-size: 0.8rem;
 
 			&.show {
 				visibility: visible;
 				opacity: 1;
 				transform: scale(1);
-			}
-		}
-		.copy-element {
-			position: absolute;
-			right: 1.5rem;
-			top: 50%;
-			transform: translateY(-50%);
-			font-size: 1.7rem;
-			cursor: pointer;
-			transition: 300ms ease;
-			color: $darkText;
-
-			&:hover {
-				transform: translateY(-50%) scale(0.9);
 			}
 		}
 
@@ -125,7 +130,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			min-width: 65px;
+			min-width: 55px;
 			outline: none;
 			border: none;
 			background-color: $accentColor;
@@ -143,9 +148,9 @@
 	}
 
 	h2 {
-		font-size: 1.35rem;
-		margin-bottom: 1.5rem;
-		padding: 1rem;
+		font-size: 1.2rem;
+		margin-bottom: 1.2rem;
+		padding: 0.9rem;
 		background-color: $strokeColor;
 		color: $darkText;
 	}
@@ -172,7 +177,7 @@
 				&:checked + label::before {
 					background-color: $accentColor;
 					border: 1px solid $accentColor;
-					background-image: url('./check1.svg');
+					background-image: url('../check1.svg');
 					background-repeat: no-repeat;
 					background-position: center;
 					background-size: 20px 20px;
@@ -181,7 +186,7 @@
 				&:indeterminate + label:before {
 					background-color: $accentColor;
 					border: 1px solid $accentColor;
-					background-image: url('./indeterminate.svg');
+					background-image: url('../indeterminate.svg');
 					background-repeat: no-repeat;
 					background-position: center;
 					background-size: 25px 30px;
@@ -237,7 +242,7 @@
 		width: 0;
 	}
 	50% {
-		width: 85%;
+		width: 70%;
 	}
 
 	100% {

@@ -12,16 +12,19 @@ export default function renderApp() {
 					<input
 						id="input"
 						type="text"
-						placeholder="Your Password will show here..."
+						placeholder="Just Generate..."
 						autocomplete="off"
 						readonly />
-					<i class="bx bx-copy copy-element"></i>
-					<p class="error-msg"></p>
-				</div>
-
-				<button class="generate-bnt" id="generate-btn">
-					<i class="bx bxs-magic-wand"></i>
-				</button>
+						<p class="error-msg"></p>
+						<button class="copy-element" id="copy-element">
+							<i class="bx bx-copy copy-icon"></i>
+						</button>
+						<button class="generate-bnt" id="generate-btn">
+							<i class="bx bxs-magic-wand"></i>
+						</button>
+						</div>
+						
+						
 			</div>
 
 			<h2>Choose Your Options</h2>
@@ -36,6 +39,7 @@ export default function renderApp() {
 						class="indeterminate"
 						id="lower-checkbox"
 						checked />
+
 					<label for="lower-checkbox">aaa</label>
 				</div>
 				<div class="check-wrapper">

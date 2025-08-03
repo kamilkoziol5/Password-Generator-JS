@@ -9,7 +9,7 @@ export default function copyPassword() {
 	if (!inputValue) {
 		input.classList.add('error');
 		error.classList.add('show');
-		error.textContent = 'Brak hasła do skopiowania!';
+		error.textContent = 'No password to copy!';
 		return;
 	}
 
@@ -24,7 +24,7 @@ export default function copyPassword() {
 			});
 		})
 		.catch(() => {
-			const text = 'Nie udało sie skopiować';
+			const text = 'Copying failed';
 			showPopup(text);
 			console.error('ERROR');
 		});
