@@ -1,0 +1,20 @@
+@use 'variables' as *;
+
+.popup {
+	position: absolute;
+	top: -4rem;
+	padding: 0.85rem;
+	background-color: $succesColor;
+	font-size: 1rem;
+	font-weight: 600;
+	color: $darkText;
+	transform: translateY(-100px) scale(0.3);
+	opacity: 0;
+	transition: 300ms ease;
+	pointer-events: none;
+
+	&.show {
+		transform: translateY(0) scale(1);
+		opacity: 1;
+	}
+}
